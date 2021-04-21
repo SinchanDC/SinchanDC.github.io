@@ -1,2 +1,0 @@
-# SinchanDC.github.io
-demo
