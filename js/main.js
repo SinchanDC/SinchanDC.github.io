@@ -136,46 +136,25 @@ $(window).on('load', function() {
 	/*------------------
 		CONTACT FORM
 	--------------------*/
-	$('#contact-form').on('submit', function() {
-		var send_btn = $('#send-form'),
-			form = $(this),
-			formdata = $(this).serialize(),
-			chack = $('#form-chack');
-			send_btn.text('Wait...');
+	var form = document.getElementById("contact-form");
 
-		function reset_form(){
-		 	$("#name").val('');
-			$("#email").val('');
-			$("#massage").val('');
-		}
-
-		$.ajax({
-			url:  $(form).attr('action'),
-			type: 'POST',
-			data: formdata,
-			success : function(text){
-				if (text == "success"){
-					send_btn.addClass('done');
-					send_btn.text('Success');
-					setTimeout(function() {
-						reset_form();
-						send_btn.removeClass('done');
-						send_btn.text('Massage');
-					}, 2500);
-				}
-				else {
-					reset_form();
-					send_btn.addClass('error');
-					send_btn.text('Error');
-					setTimeout(function() {
-						send_btn.removeClass('error');
-						send_btn.text('Massage');
-					}, 5000);
-				}
-			}
-		});
-		return false;
-	});
-
+	    async function handleSubmit(event) {
+	      event.preventDefault();
+	      var status = document.getElementById("my-form-status");
+	      var data = new FormData(event.target);
+	      fetch(event.target.action, {
+	        method: form.method,
+	        body: data,
+	        headers: {
+	            'Accept': 'application/json'
+	        }
+	      }).then(response => {
+	        status.innerHTML = "Thanks for your submission!";
+	        form.reset()
+	      }).catch(error => {
+	        status.innerHTML = "Oops! There was a problem submitting your form"
+	      });
+	    }
+	    form.addEventListener("submit", handleSubmit)
 
 })(jQuery);
