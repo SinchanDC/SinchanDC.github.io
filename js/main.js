@@ -149,7 +149,7 @@ $(window).on('load', function() {
 	            'Accept': 'application/json'
 	        }
 	      }).then(response => {
-	        status.innerHTML = "Thanks for your submission!";
+	        status.innerHTML = "Thank you for your submission! I will reach you shortly";
 	        form.reset()
 	      }).catch(error => {
 	        status.innerHTML = "Oops! There was a problem submitting your form"
