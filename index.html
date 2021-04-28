@@ -1,231 +1,390 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>SDC presents 'Racing 2D'</title>
-    <style>
-        .hide {
-            display: none;
-        }
+	<title>SDC Official</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Favicon -->
+	<link href="img/favicon.png" rel="shortcut icon"/>
 
-        .car,
-        .enemy {
-            position: absolute;
-            bottom: 100px;
-            margin: auto;
-            width: 50px;
-            height: 100px;
-            background-color: white;
-            line-height: 38px;
-            font-size: 1.7em;
-            text-align: center;
-            vertical-align: middle;
-            background-image: url(car2.png);
-            background-size: cover;
-        }
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/magnific-popup.css"/>
+	<link rel="stylesheet" href="css/animate.min.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
 
-        .line {
-            position: absolute;
-            height: 100px;
-            width: 10px;
-            margin-left: 195px;
-            background-color: white;
-        }
 
-        .score {
-            background-color: black;
-            height: 70px;
-            text-align: center;
-            color: white;
-            font-size: 1.5em;
-            font-family: fantasy;
-        }
 
-        .gameArea {
-            background-color: black;
-            width: 400px;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-            margin: auto;
-        }
-
-        .startScreen {
-            position: absolute;
-            background-color: purple;
-            left: 25%;
-            top: 100px;
-            color: white;
-            font-size: 25px;
-            z-index: 1;
-            text-align: center;
-            border: 1px solid black;
-            padding: 15px;
-            margin: auto;
-            width: 50%;
-            font-family: calibri;
-        }
-    </style>
 </head>
-
 <body>
-    <link rel="stylesheet" href="style.css" />
-    <div class="score"></div>
-    <div class="game">
-        <div class="startScreen">Designed by SinchanDC
-            <br>Rules: Hitting another car results in loss
-            <br>Tap here to start</div>
-        <div class="gameArea"></div>
-    </div>
-    <nav>
-      <div class="logo">Designed by SinchanDC</div>
-	       <ul class="sci">
-          <li><a href="https://www.linkedin.com/in/sinchan-d-408344121/"><img src="linkedin.png" alt="" /></a></li>
-          <li><a href="https://www.facebook.com/profile.php?id=100009744256981"><img src="facebook.png" alt="" /></a></li>
-          <li><a href="https://www.instagram.com/sinchan_dc/"><img src="instagram-logo.png" alt="" /></a></li>
-        </ul>
-      </div>
-    </nav>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
 
-    <script>
-        alert("Developed by SinchanDC and is subject to SDC ©copyright 2021 Press OK to continue if you agree to terms and conditions of standard ™Trademark. All rights reserved®");
-        const score = document.querySelector(".score");
-        const startScreen = document.querySelector(".startScreen");
-        const gameArea = document.querySelector(".gameArea");
-        let player = {
-            speed: 7
-            , score: 0
-        };
-        let keys = {
-            ArrowUp: false
-            , ArrowDown: false
-            , ArrowRight: false
-            , ArrowLeft: false
-        };
-        startScreen.addEventListener("click", start);
-        document.addEventListener("keydown", pressOn);
-        document.addEventListener("keyup", pressOff);
+	<!--====== Header Section Start ======-->
+	<header class="header-section">
+		<div class="logo">
+			<img src="img/logo.png" alt=""><!-- Logo -->
+		</div>
+		<div class="responsive"><i class="fa fa-bars"></i></div>
+		<!-- Navigation -->
+		<ul class="menu-list">
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#service">Other websites</a></li>
+			<li><a href="#portfolio">Portfolio</a></li>
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+	</header>
+	<!--====== Header Section End ======-->
 
-        function moveLines() {
-            let lines = document.querySelectorAll(".line");
-            lines.forEach(function (item) {
-                if (item.y >= 1500) {
-                    item.y -= 1500;
-                }
-                item.y += player.speed;
-                item.style.top = item.y + "px";
-            })
-        }
 
-        function isCollide(a, b) {
-            let aRect = a.getBoundingClientRect();
-            let bRect = b.getBoundingClientRect();
-            return !(
-                (aRect.bottom < bRect.top) || (aRect.top > bRect.bottom) || (aRect.right < bRect.left) || (aRect.left > bRect.right))
-        }
+	<!-- ==== Intro Section Start ==== -->
+	<section class="intro-section fix" id="home">
+		<div class="intro-bg bg-cms"></div>
+		<div class="intro-inner">
+			<div class="intro-content">
+				<div id="round"></div>
+				<div class="profile-img">
+					<img src="img/avatar.png" alt="">
+				</div>
+				<h2><span class="element"></span></h2>
+			</div>
+		</div>
+	</section>
+	<!-- ==== Intro Section End ==== -->
 
-        function moveEnemy(car) {
-            let ele = document.querySelectorAll(".enemy");
-            ele.forEach(function (item) {
-                if (isCollide(car, item)) {
-                    console.log("HIT");
-                    endGame();
-                }
-                if (item.y >= 1500) {
-                    item.y = -600;
-                    item.style.left = Math.floor(Math.random() * 350) + "px";
-                    item.style.backgroundColor = randomColor();
-                }
-                item.y += player.speed;
-                item.style.top = item.y + "px";
-            })
-        }
+	<main class="main-warp">
+		<!-- ==== About Section Start ==== -->
+		<section class="about-section fix" id="about">
+			<div class="container pt100 pb100">
+				<div class="row">
+					<div class="col-md-7 about-text">
+						<h2>About</h2>
+						<p>This website has been developed by SinchanDC and is subject to SDC ©copyright 2021 with respect to the terms and conditions under standard ™Trademark license. All rights reserved®</p>
+						<a href="https://drive.google.com/file/d/1dvfFoHIXjP9rXFCQ6UkGBn9Gcaj3VpHh/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="site-btn mt10">Check my resumé</a>
+					</div>
+					<div class="col-md-5 skill">
+						<!-- Skill item -->
+						<div class="single-progress-item">
+							<p>html</p>
+							<div class="progress-bar-style" data-progress="40"></div>
+						</div>
+						<!-- Skill item -->
+						<div class="single-progress-item">
+							<p>css</p>
+							<div class="progress-bar-style" data-progress="35"></div>
+						</div>
+						<!-- Skill item -->
+						<div class="single-progress-item">
+							<p>javascript</p>
+							<div class="progress-bar-style" data-progress="20"></div>
+						</div>
+						<!-- Skill item -->
+						<div class="single-progress-item">
+							<p>php</p>
+							<div class="progress-bar-style" data-progress="0"></div>
+						</div>
+						<!-- Skill item -->
+						<div class="single-progress-item">
+							<p>graphic designing</p>
+							<div class="progress-bar-style" data-progress="5"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ==== About Section End ==== -->
 
-        function playGame() {
-            let car = document.querySelector(".car");
-            moveLines();
-            moveEnemy(car);
-            let road = gameArea.getBoundingClientRect();
-            if (player.start) {
-                if (keys.ArrowUp && player.y > road.top) {
-                    player.y -= player.speed;
-                }
-                if (keys.ArrowDown && player.y < road.bottom) {
-                    player.y += player.speed;
-                }
-                if (keys.ArrowLeft && player.x > 0) {
-                    player.x -= player.speed;
-                }
-                if (keys.ArrowRight && player.x < (road.width - 50)) {
-                    player.x += player.speed;
-                }
-                car.style.left = player.x + 'px';
-                car.style.top = player.y + 'px';
-                window.requestAnimationFrame(playGame);
-                player.score++;
-                score.innerText = "Score: " + player.score;
-            }
-        }
 
-        function pressOn(e) {
-            e.preventDefault();
-            keys[e.key] = true;
-        }
+		<!-- ==== About Section Start ==== -->
+		<section class="service-section fix" id="service">
+			<div class="container pt100 pb100">
+				<div class="stitle mb70">
+					<h2>Other websites hosted by SinchanDC</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.2s">
+						<div class="service-item">
+							<div class="serv-icon">
+								<i class="fa fa-gamepad"></i>
+							</div>
+							<div class="serv-content">
+								<a href="racing.html" target="_blank" rel="noopener noreferrer"
+								<h4>Racing 2D</h4>
+								<p>A 2D car racing game with simple controls, smooth navigation and peak accuracy</p>
+							</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
+						<div class="service-item">
+							<div class="serv-icon">
+								<i class="fa fa-globe"></i>
+							</div>
+							<div class="serv-content">
+								<a href="planets.html" target="_blank" rel="noopener noreferrer"
+								<h4>Planets</h4>
+								<p>An animated website reflecting important facts about all the planets in out solar system</p>
+							</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
+						<div class="service-item">
+							<div class="serv-icon">
+								<i class="fa fa-question"></i>
+							</div>
+							<div class="serv-content">
+								<a href="virtualpath/virtualpath.html" target="_blank" rel="noopener noreferrer"
+								<h4>Coming soon..</h4>
+								<p>website under development and will be available soon. Stay tuned :)</p>
+							</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.8s">
+						<div class="service-item">
+							<div class="serv-icon">
+								<i class="fa fa-star-half-o"></i>
+							</div>
+							<div class="serv-content">
+								<h4>Friend_space</h4>
+								<p>A space in my blog for my friends to host their websites!</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ==== About Section End ==== -->
 
-        function pressOff(e) {
-            e.preventDefault();
-            keys[e.key] = false;
-        }
 
-        function endGame() {
-            player.start = false;
-            score.innerHTML = "Game Over<br>Score was " + player.score;
-            startScreen.classList.remove("hide");
-        }
+		<!-- ==== Portfolio Section Start ==== -->
+		<section class="portfolio-section fix" id="portfolio">
+			<div class="container pt100 pb100">
+				<div class="stitle mb40">
+					<h2>Some facts</h2>
+				</div>
 
-        function start() {
-            startScreen.classList.add("hide");
-            //gameArea.classList.remove("hide");
-            gameArea.innerHTML = "";
-            player.start = true;
-            player.score = 0;
-            for (let x = 0; x < 10; x++) {
-                let div = document.createElement("div");
-                div.classList.add("line");
-                div.y = x * 150;
-                div.style.top = (x * 150) + "px";
-                gameArea.appendChild(div);
-            }
-            window.requestAnimationFrame(playGame);
-            let car = document.createElement("div");
-            //car.innerText = "Car";
-            car.setAttribute("class", "car");
-            gameArea.appendChild(car);
-            player.x = car.offsetLeft;
-            player.y = car.offsetTop;
-            for (let x = 0; x < 3; x++) {
-                let enemy = document.createElement("div");
-                enemy.classList.add("enemy");
-                enemy.innerHTML = "<br>" + (x + 1);
-                enemy.y = ((x + 1) * 600) * -1;
-                enemy.style.top = enemy.y + "px";
-                enemy.style.left = Math.floor(Math.random() * 350) + "px";
-                enemy.style.backgroundColor = randomColor();
-                gameArea.appendChild(enemy);
-            }
-        }
+				<ul class="portfolio-filter mb40">
+					<li class="filter" data-filter="*">ALL</li>
+					<li class="filter" data-filter=".ill">YOUTUBE VIDEOS</li>
+					<li class="filter" data-filter=".brand">CHESS</li>
+					<li class="filter" data-filter=".fs">OTHERS</li>
+				</ul>
+				<div class="row isotope_items">
+					<!-- Work item -->
+					<div class="col-md-4 col-sm-6 col-xs-12 ill">
+						<a class="work-item " href="img/works/polygons.jpg">
+							<img src="img/works/polygons.jpg" alt="">
+							<div class="work-inner">
+								<div class="work-info">
+									<h2>Polygons in 2D</h2>
+									<h3>Youtube video</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- Work item -->
+					<div class="col-md-4 col-sm-6 col-xs-12 brand">
+						<a class="work-item" href="img/works/chessrapid.png">
+							<img src="img/works/chessrapid.png" alt="">
+							<div class="work-inner">
+								<div class="work-info">
+									<h2>chess.com ratings</h2>
+									<h3>Rapid ratings</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- Work item -->
+					<div class="col-md-4 col-sm-6 col-xs-12 fs">
+						<a class="work-item" href="img/works/integrals.png">
+							<img src="img/works/integrals.png" alt="">
+							<div class="work-inner">
+								<div class="work-info">
+									<h2>World of Integrals</h2>
+									<h3>A book in progress</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- Work item -->
+					<div class="col-md-4 col-sm-6 col-xs-12 brand">
+						<a class="work-item" href="img/works/lichessrapid.png">
+							<img src="img/works/lichessrapid.png" alt="">
+							<div class="work-inner">
+								<div class="work-info">
+									<h2>lichess.org ratings</h2>
+									<h3>Rapid ratings</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- Work item -->
+					<div class="col-md-4 col-sm-6 col-xs-12 fs">
+						<a class="work-item" href="img/works/chegg.jpg">
+							<img src="img/works/chegg.jpg" alt="">
+							<div class="work-inner">
+								<div class="work-info">
+									<h2>Chegg Expert training</h2>
+									<h3>Advanced Math</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+					<!-- Work item -->
+					<div class="col-md-4 col-sm-6 col-xs-12 ill">
+						<a class="work-item" href="img/works/gamma.png">
+							<img src="img/works/gamma.png" alt="">
+							<div class="work-inner">
+								<div class="work-info">
+									<h2>Gamma function basics</h2>
+									<h3>Youtube video</h3>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ==== Portfolio Section End ==== -->
 
-        function randomColor() {
-            function c() {
-                let hex = Math.floor(Math.random() * 256).toString(16);
-                return ("0" + String(hex)).substr(-2)
-            }
-            return "#" + c() + c() + c();
-        }
-    </script>
+
+		<!-- ==== Review Section Start ==== -->
+		<section class="review-section fix" id="review">
+			<div class="container pt100 pb100">
+				<div class="col-md-offset-2 col-md-8">
+					<div id="review-carousel">
+						<!-- Review item -->
+						<div class="review-item">
+							<div class="clint">
+								<img src="img/review/01.jpg" alt="">
+							</div>
+							<p>"The way to get started is to quit talking and begin doing."</p>
+							<h2>Walt Disney</h2>
+							<h3>American entrepreneur</h3>
+						</div>
+						<!-- Review item -->
+						<div class="review-item">
+							<div class="clint">
+								<img src="img/review/02.jpg" alt="">
+							</div>
+							<p>"It is during our darkest moments that we must focus to see the light." </p>
+							<h2>Aristotle</h2>
+							<h3>Greek philosopher</h3>
+						</div>
+						<!-- Review item -->
+						<div class="review-item">
+							<div class="clint">
+								<img src="img/review/03.jpg" alt="">
+							</div>
+							<p>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</p>
+							<h2>Albert Einstein</h2>
+							<h3>Theoretical Physicist</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ==== Review Section End ==== -->
+
+
+		<section class="promotion-section">
+			<div class="promotion-bg"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 promotion">
+						<h2>Check my latest youtube video</h2>
+						<a href="https://www.youtube.com/watch?v=5NHx8D8grGo" target="_blank" rel="noopener noreferrer"class="site-btn btn-light mt25 wow fadeInUp" data-wow-delay="0.2s">WATCH NOW !</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+		<!-- ==== Contact Section Start ==== -->
+		<section class="contact-section fix" id="contact">
+			<div class="container pt100 pb100">
+				<div class="stitle mb70">
+					<h2>Get in touch</h2>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="row">
+							<!-- Contact Info -->
+							<div class="col-md-4 col-sm-4 contact-info wow fadeInUp" data-wow-delay="0.2s">
+								<i class="fa fa-phone"></i>
+								<p>+91 9432202301<br>t.me/SinchanDC</p>
+							</div>
+							<!-- Contact Info -->
+							<div class="col-md-4 col-sm-4 contact-info wow fadeInUp" data-wow-delay="0.4s">
+								<i class="fa fa-map-marker"></i>
+								<p>Kolkata, West Bengal<br>India</p>
+							</div>
+							<!-- Contact Info -->
+							<div class="col-md-4 col-sm-4 contact-info wow fadeInUp" data-wow-delay="0.6s">
+								<i class="fa fa-send"></i>
+								<p>sinchan.sxi9@gmail.com<br>sdc.gg@protonmail.com</p>
+							</div>
+						</div>
+						<!-- Contact Form -->
+						<form action="https://formsubmit.co/sinchan.sxi9@gmail.com" class="cont-form" id="contact-form" method="POST" >
+							<div class="row">
+								<div class="col-sm-6">
+									<input type="text" name="name" id="name" required placeholder="Your Name*">
+								</div>
+								<div class="col-sm-6">
+									<input type="email" name="email" id="email" required placeholder="Your Email*">
+								</div>
+								<div class="col-sm-12">
+									<textarea id="massage" name="massage" required placeholder="Your Massage*"></textarea>
+								</div>
+								<div class="text-center">
+									<button type="submit" class="site-btn" data-wow-delay="0.2s" id="send-form">Send Massege</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- ==== Contact Section End ==== -->
+	</main>
+
+
+	<!-- ==== Footer Section Start ==== -->
+	<footer class="footer-section fix" id= "footer">
+		<div class="container">
+			<!-- social media -->
+			<div class="social-links mt25">
+				<a href="https://www.facebook.com/profile.php?id=100009744256981" target="_blank" rel="noopener noreferrer"class="facebook"><i class="fa fa-facebook"></i></a>
+				<a href="https://www.instagram.com/sinchan_dc/"target="_blank" rel="noopener noreferrer" class="instagram"><i class="fa fa-instagram"></i></a>
+				<a href="https://www.linkedin.com/in/sinchan-d-408344121/" target="_blank" rel="noopener noreferrer"class="linkedin"><i class="fa fa-linkedin"></i></a>
+				<a href="https://github.com/SinchanDC"target="_blank" rel="noopener noreferrer" class="github"><i class="fa fa-github"></i></a>
+				<a href="https://steamcommunity.com/profiles/76561198965123112" target="_blank" rel="noopener noreferrer"class="steam"><i class="fa fa-steam"></i></a>
+				<a href="https://wa.me/9432202301" target="_blank" rel="noopener noreferrer"target="_blank" rel="noopener noreferrer"class="whatsapp"><i class="fa fa-whatsapp"></i></a>
+				<a href="https://mailto:sinchan.sxi9@gmail.com"target="_blank" rel="noopener noreferrer" class="mail"><i class="fa fa-envelope"></i></a>
+				<a href="https://www.youtube.com/channel/UC-_9AHzupRBSdC5VBmLjaAA" target="_blank" rel="noopener noreferrer"class="youtube"><i class="fa fa-youtube"></i></a>
+				<a href="https://t.me/SinchanDC" target="_blank" rel="noopener noreferrer"class="telegram"><i class="fa fa-telegram"></i></a>4
+			</div>
+			<p>SDC Copyright © 2021, All rights Reserved.</p>
+			</div>
+	</footer>
+	<!-- ==== Footer Section End ==== -->
+
+
+	<!--====== Javascripts & Jquery ======-->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/plugin.js"></script>
+	<script src="js/init-round.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
