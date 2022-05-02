@@ -2,7 +2,7 @@
 const prompts = [
   ["best clan"],
 
-["the term recruitment means"], ["difference between selection and recruitment"], ["top ten recruitment companies in india"], ["total nit count", "nit"], ["best nit"], ["total iit count, "iit""], ["best iit"], ["best it company"], ["most frequently asked question in interview"], ["best engineering course"], ["top career options after engineering"], ["most necessary quality to get an it job"], ["average btech engineer salary"], ["best internship websites in india"], ["five best programming languages to learn"], ["five best institutions for gate preperation"], ["top mtech entrance exams"], ["top five mba entrance exams in india"], ["average academic score to pursue pg degree in engineering"], ["necessary requirements for phd"],
+["the term recruitment means"], ["difference between selection and recruitment"], ["top ten recruitment companies in india"], ["total nit count", "nit"], ["best nit"], ["total iit count", "iit"], ["best iit"], ["best it company"], ["most frequently asked question in interview"], ["best engineering course"], ["top career options after engineering"], ["most necessary quality to get an it job"], ["average btech engineer salary"], ["best internship websites in india"], ["five best programming languages to learn"], ["five best institutions for gate preperation"], ["top mtech entrance exams"], ["top five mba entrance exams in india"], ["average academic score to pursue pg degree in engineering"], ["necessary requirements for phd"],
   ["who created you", "who are your parents"],
   ["hi", "hey", "hello", "good morning", "good afternoon", "your mom"],
   ["how are you", "how is life", "how are things"],
@@ -83,4 +83,4 @@ const alternative = [
 
 // Whatever else you want :)
 
-const coronavirus = ["Please stay home", "Wear a mask", "Fortunately, I don't have COVID", "These are uncertain times"]
+const coronavirus = ["Please stay home", "Wear a mask", "Fortunately, I don't have COVID", "These are uncertain times"
