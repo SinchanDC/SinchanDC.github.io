@@ -10,6 +10,24 @@
 
 ====== End ======*/
 
+
+
+
+
+
+function formprocess ()
+{
+  var capture= document.forms["input"]["fanme"].value+ '<br>';
+  capture += document.forms["input"]["fathername"].value+ '<br>';
+  document.getElementById("outputDiv").innerHTML= capture;
+}
+
+
+
+
+
+
+
 $(document).ready(function () {
   "use strict";
 

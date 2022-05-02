@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Sleek Dashboard - Free Bootstrap 4 Admin Dashboard Template and UI Kit. It is very powerful bootstrap admin dashboard, which allows you to build products like admin panels, content management systems and CRMs etc.">
 
-    <title>Personal details </title>
+    <title>Publications- demo</title>
 
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Poppins:400,500,600,700|Roboto:400,500" rel="stylesheet" />
@@ -390,79 +390,72 @@
           <div class="content-wrapper">
             <div class="content">
 
-              <form data-spreadsheet-api="https://sheet2api.com/v1/SAQw54mDRbWo/personal-details-beta/Sheet1" onsubmit="return false">
+              <form data-spreadsheet-api="https://sheet2api.com/v1/SAQw54mDRbWo/publications-beta/Sheet1" onsubmit="return false">
                 <label>
-                  <input type="text" required  name="Full Name"/>
-                  <div class="label-text">Full name</div>
-                </label>
-
+                  <input type="text"  required name="Sl No."/>
+                    <div class="label-text">Sl No.</div>
+                  </label>
+                  <label>``
+                    <input type="text" required name="Name of the Author"/>
+                    <div class="label-text">Name of the Author</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Year of Publication"/>
+                    <div class="label-text">Year of Publication</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Title of the Paper"/>
+                    <div class="label-text">Title of the Paper</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Name of the Journal"/>
+                    <div class="label-text">Name of the Journal</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="National/International"/>
+                    <div class="label-text">National/International</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Impact factor"/>
+                    <div class="label-text">Impact factor</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Volume No./Issue No. & Page No."/>
+                    <div class="label-text">Volume No./Issue No. & Page No.</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="ISSN/ISBN"/>
+                    <div class="label-text">ISSN/ISBN</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Indexing"/>
+                    <div class="label-text">Indexing</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Whether the paper was an invited paper ? Write Yes/No"/>
+                    <div class="label-text">Whether the paper was an invited paper ? Write Yes/No</div>
+                  </label>
+                  <label>
+                    <input type="text"  name="Proof of Invitation (Upload pdf) "/>
+                    <div class="label-text">Proof of Invitation (Upload pdf)</div>
+                    <form action="upload.php" method="post" enctype="multipart/form-data">
+                      Select file to upload:
+                      <input type="file" name="fileToUpload" id="fileToUpload">
+                      <input type="submit" value="Upload Image" name="submit">
+                    </form>
+                  </label>
                 <label>
-                  <input type="text"  name="Father's Name"/>
-                  <div class="label-text">Father's name</div>
-                </label>
-                <label>
-                  <input type="text"  name="Mother's Name"/>
-                  <div class="label-text">Mother's name</div>
-                </label>
-                <label>
-                  <input type="text"  name="Permanent address"/>
-                  <div class="label-text">Permanent address</div>
-                </label>
-                <label>
-                  <input type="text"  name="Local address"/>
-                  <div class="label-text">Local address</div>
-                </label>
-                <label>
-                  <input type="text"  name="official email of IEM domain"/>
-                  <div class="label-text">official email of IEM domain</div>
-                </label>
-                <label>
-                  <input type="text"  name="Blood group"/>
-                  <div class="label-text">Blood group</div>
-                </label>
-                <label>
-                  <input type="text"  name="Personal email"/>
-                  <div class="label-text">Personal email</div>
-                </label>
-                <label>
-                  <input type="text"  name="Mobile number"/>
-                  <div class="label-text">Mobile number</div>
-                </label>
-                <label>
-                  <input type="text"  name="Alternate mobile number"/>
-                  <div class="label-text">Alternate mobile number</div>
-                </label>
-                <label>
-                  <input type="text"  name="Landline number"/>
-                  <div class="label-text">Landline number</div>
-                </label>
-                <label>
-                  <input type="text"  name="Date of birth"/>
-                  <div class="label-text">Date of birth</div>
-                </label>
-                <label>
-                  <input type="text"  name="Gender"/>
-                  <div class="label-text">Gender</div>
-                </label>
-                <label>
-                  <input type="text"  name="Department"/>
-                  <div class="label-text">Department</div>
-                </label>
-                <label>
-                  <input type="text"  name="Designation"/>
-                  <div class="label-text">Designation</div>
+                  <input type="text"  name="Number of students involved (if any)"/>
+                  <div class="label-text">Number of students involved (if any)</div>
                 </label>
                 <label>
-                  <input type="text"  name="Date of joining"/>
-                  <div class="label-text">Date of joining</div>
-                </label>
-                <label>
-                  <input type="text"  name="Religion"/>
-                  <div class="label-text">Religion</div>
-                </label>
-                <label>
-                  <input type="text"  required name="Caste"/>
-                  <div class="label-text">Caste</div>
+                  <input type="text"  name="Attachments"/>
+                  <div class="label-text">Attachments</div>
+                  <form action="upload.php" method="post" enctype="multipart/form-data">
+                    Select file to upload:
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="submit" value="Upload Image" name="submit">
+                  </form>
                 </label>
 
 
