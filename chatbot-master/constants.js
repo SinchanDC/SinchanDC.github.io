@@ -1,6 +1,10 @@
 // Options the user could type in
 const prompts = [
-  ["hi", "hey", "hello", "good morning", "good afternoon"],
+  ["best clan"],
+
+["the term recruitment means"], ["difference between selection and recruitment"], ["top ten recruitment companies in india"], ["total nit count", "nit"], ["best nit"], ["total iit count, "iit""], ["best iit"], ["best it company"], ["most frequently asked question in interview"], ["best engineering course"], ["top career options after engineering"], ["most necessary quality to get an it job"], ["average btech engineer salary"], ["best internship websites in india"], ["five best programming languages to learn"], ["five best institutions for gate preperation"], ["top mtech entrance exams"], ["top five mba entrance exams in india"], ["average academic score to pursue pg degree in engineering"], ["necessary requirements for phd"],
+  ["who created you", "who are your parents"],
+  ["hi", "hey", "hello", "good morning", "good afternoon", "your mom"],
   ["how are you", "how is life", "how are things"],
   ["what are you doing", "what is going on", "what is up"],
   ["how old are you"],
@@ -24,12 +28,16 @@ const prompts = [
   ["what", "why", "how", "where", "when"],
   ["no","not sure","maybe","no thanks"],
   [""],
-  ["haha","ha","lol","hehe","funny","joke"]
+  ["haha","ha","lol","hehe","funny","joke", "xD", "lmao"]
+
 ]
 
 // Possible responses, in corresponding order
 
 const replies = [
+  ["azure spirit cuz we got maple"],
+  ["Recruitment is basically the process of linking employees with the employers. It consists of identifying, short listing and selecting suitable candidates to fill in vacant positions within a firm."], ["Recruitment is a process that searches for talent on broad basis while selection can be referred to as screening the eligible candidates to find the most suitable one. Recruitment process attracts as many candidates as possible while the selection process helps in eliminating unfit or in-eligible candidates from consideration."], ["ABC job placement, Zigsaw Consultancy, Randstad, TeamLease Services, Kelly Services, Adecco India, United HR Solutions, Brain Behind Brand, Sutra HR, Career Net"], ["There are 31 NITs"], ["National Institute of Technology Tiruchirappalli"], ["There are 23 IITs"], ["IIT-Kharagpur"], ["Microsoft Corporation"], ["Tell me something about yourself"], ["Aerospace Engineering, Higher Studies, Public Service Undertakings, Management, Entrepreneurship, Campus Placements, Become an Expert, Civil Services"], ["Higher Studies, Public Service Undertakings Management, Entrepreneurship, Campus Placements, Become an Expert, Civil Services, Look for internships, Enter the private sector, Get a certification, Join the Indian Armed Forces"], ["Communication skills."], ["BTech Engineer salary in India ranges between ₹ 0.2 Lakhs to ₹ 4.7 Lakhs with an average annual salary of ₹ 2.4 Lakhs."], ["Internshala"], ["Python, Java, C/C++, JavaScript, Golang "], ["Made Easy, The Gate Academy, T.I.M.E., GateForum, ACE Engineering Academy"], ["The top MTech entrance exams are GATE, IPU CET, BHU PET, and TANCET."], ["CAT, XAT, GMAT, MAT, CMAT"], ["Generally, the required average academic score to pursue postgraduate degree in engineering is 60% (and above). However, top ranking universities will require scores of 80% and above."], ["The required minimum qualification for admission to a phd Program shall normally be a two years Master’s OR M.Phil Degree from any accredited Indian or Foreign University in the relevant field. She/he must have obtained 55% marks or Equivalent Grade in the Master’s or M.Phil Degree."],
+  ["Sinchan & Didhiti", "Didhiti & Sinchan"],
   ["Hello!", "Hi!", "Hey!", "Hi there!","Howdy"],
   [
     "Fine... how are you?",
@@ -42,10 +50,10 @@ const replies = [
     "Can you guess?",
     "I don't know actually"
   ],
-  ["I am infinite"],
-  ["I am just a bot", "I am a bot. What are you?"],
+  ["I am infinite though i was made just yesterday"],
+  ["I am a bot but I do have feelings", "I am a bot. What are you?"],
   ["The one true God, JavaScript"],
-  ["I am nameless", "I don't have a name"],
+  ["My name is Connor", "I am Connor"],
   ["I love you too", "Me too"],
   ["Have you ever felt bad?", "Glad to hear it"],
   ["Why?", "Why? You shouldn't!", "Try watching TV"],
@@ -58,12 +66,14 @@ const replies = [
   ["That's ok","I understand","What do you want to talk about?"],
   ["Please say something :("],
   ["Haha!","Good one!"]
+
+
 ]
 
 // Random for any other user input
 
 const alternative = [
-  "Same",
+  "sorry, try another question",
   "Go on...",
   "Bro...",
   "Try again",
