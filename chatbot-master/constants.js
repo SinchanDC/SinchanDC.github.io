@@ -1,8 +1,8 @@
 // Options the user could type in
 const prompts = [
   ["best clan"],
-
-["the term recruitment means"], ["difference between selection and recruitment"], ["top ten recruitment companies in india"], ["total nit count", "nit"], ["best nit"], ["total iit count", "iit"], ["best iit"], ["best it company"], ["most frequently asked question in interview"], ["best engineering course"], ["top career options after engineering"], ["most necessary quality to get an it job"], ["average btech engineer salary"], ["best internship websites in india"], ["five best programming languages to learn"], ["five best institutions for gate preperation"], ["top mtech entrance exams"], ["top five mba entrance exams in india"], ["average academic score to pursue pg degree in engineering"], ["necessary requirements for phd"],
+  ["date"],
+  ["the term recruitment means"], ["difference between selection and recruitment"], ["top ten recruitment companies in india"], ["total nit count", "nit"], ["best nit"], ["total iit count", "iit"], ["best iit"], ["best it company"], ["most frequently asked question in interview"], ["best engineering course"], ["top career options after engineering"], ["most necessary quality to get an it job"], ["average btech engineer salary"], ["best internship websites in india"], ["five best programming languages to learn"], ["five best institutions for gate preperation"], ["top mtech entrance exams"], ["top five mba entrance exams in india"], ["average academic score to pursue pg degree in engineering"], ["necessary requirements for phd"],
   ["who created you", "who are your parents"],
   ["hi", "hey", "hello", "good morning", "good afternoon", "your mom"],
   ["how are you", "how is life", "how are things"],
@@ -36,7 +36,8 @@ const prompts = [
 
 const replies = [
   ["azure spirit cuz we got maple"],
-  ["Recruitment is basically the process of linking employees with the employers. It consists of identifying, short listing and selecting suitable candidates to fill in vacant positions within a firm."], ["Recruitment is a process that searches for talent on broad basis while selection can be referred to as screening the eligible candidates to find the most suitable one. Recruitment process attracts as many candidates as possible while the selection process helps in eliminating unfit or in-eligible candidates from consideration."], ["ABC job placement, Zigsaw Consultancy, Randstad, TeamLease Services, Kelly Services, Adecco India, United HR Solutions, Brain Behind Brand, Sutra HR, Career Net"], ["There are 31 NITs"], ["National Institute of Technology Tiruchirappalli"], ["There are 23 IITs"], ["IIT-Kharagpur"], ["Microsoft Corporation"], ["Tell me something about yourself"], ["Aerospace Engineering, Higher Studies, Public Service Undertakings, Management, Entrepreneurship, Campus Placements, Become an Expert, Civil Services"], ["Higher Studies, Public Service Undertakings Management, Entrepreneurship, Campus Placements, Become an Expert, Civil Services, Look for internships, Enter the private sector, Get a certification, Join the Indian Armed Forces"], ["Communication skills."], ["BTech Engineer salary in India ranges between ₹ 0.2 Lakhs to ₹ 4.7 Lakhs with an average annual salary of ₹ 2.4 Lakhs."], ["Internshala"], ["Python, Java, C/C++, JavaScript, Golang "], ["Made Easy, The Gate Academy, T.I.M.E., GateForum, ACE Engineering Academy"], ["The top MTech entrance exams are GATE, IPU CET, BHU PET, and TANCET."], ["CAT, XAT, GMAT, MAT, CMAT"], ["Generally, the required average academic score to pursue postgraduate degree in engineering is 60% (and above). However, top ranking universities will require scores of 80% and above."], ["The required minimum qualification for admission to a phd Program shall normally be a two years Master’s OR M.Phil Degree from any accredited Indian or Foreign University in the relevant field. She/he must have obtained 55% marks or Equivalent Grade in the Master’s or M.Phil Degree."],
+  ["2nd of May, 2022"],
+  ["Recruitment is basically the process of linking employees with the employers. It consists of identifying, short listing and selecting suitable candidates to fill in vacant positions within a firm."], ["Recruitment is a process that searches for talent on broad basis while selection can be referred to as screening the eligible candidates to find the most suitable one. Recruitment process attracts as many candidates as possible while the selection process helps in eliminating unfit or in-eligible candidates from consideration."], ["ABC job placement, Zigsaw Consultancy, Randstad, TeamLease Services, Kelly Services, Adecco India, United HR Solutions, Brain Behind Brand, Sutra HR, Career Net"], ["There are 31 nits"], ["nit Tiruchirappalli has always been the best nit since a very long time"], ["There are 23 IITs"], ["IIT-Madras is currently the best IIT as per the latest NIRF rankings"], ["Microsoft Corporation"], ["Tell me something about yourself"], ["Aerospace Engineering, Higher Studies, Public Service Undertakings, Management, Entrepreneurship, Campus Placements, Become an Expert, Civil Services"], ["Higher Studies, Public Service Undertakings Management, Entrepreneurship, Campus Placements, Become an Expert, Civil Services, Look for internships, Enter the private sector, Get a certification, Join the Indian Armed Forces"], ["Communication skills."], ["BTech Engineer salary in India ranges between ₹ 0.2 Lakhs to ₹ 4.7 Lakhs with an average annual salary of ₹ 2.4 Lakhs."], ["Internshala"], ["Python, Java, C/C++, JavaScript, Golang "], ["Made Easy, The Gate Academy, T.I.M.E., GateForum, ACE Engineering Academy"], ["The top MTech entrance exams are GATE, IPU CET, BHU PET, and TANCET."], ["CAT, XAT, GMAT, MAT, CMAT"], ["Generally, the required average academic score to pursue postgraduate degree in engineering is 60% (and above). However, top ranking universities will require scores of 80% and above."], ["The required minimum qualification for admission to a phd Program shall normally be a two years Master’s OR M.Phil Degree from any accredited Indian or Foreign University in the relevant field. She/he must have obtained 55% marks or Equivalent Grade in the Master’s or M.Phil Degree."],
   ["Sinchan & Didhiti", "Didhiti & Sinchan"],
   ["Hello!", "Hi!", "Hey!", "Hi there!","Howdy"],
   [
@@ -75,12 +76,13 @@ const replies = [
 const alternative = [
   "sorry, try another question",
   "Go on...",
-  "Bro...",
+  "A more relevant question may be?",
   "Try again",
   "I'm listening...",
-  "I don't understand :/"
+  "I don't understand :/",
+  "give it another try"
 ]
 
 // Whatever else you want :)
 
-const coronavirus = ["Please stay home", "Wear a mask", "Fortunately, I don't have COVID", "These are uncertain times"
+const coronavirus = ["Please stay home", "Wear a mask", "Fortunately, I don't have COVID", "These are uncertain times"]
