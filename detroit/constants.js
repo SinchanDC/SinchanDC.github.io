@@ -31,6 +31,22 @@ const prompts = [
   ["no","not sure","maybe","no thanks"],
   [""],
   ["haha","ha","lol","hehe","funny","joke", "xD", "lmao"]
+  ["What are on-campus placements"]
+["What are off-campus placements"]
+["difference between on-campus and off-campus",
+"on-campus vs off-campus"]
+["is getting off-campus placement difficult"]
+["how do I get a job without campus placement"]
+["when should I apply for an off-campus placement"]
+["preparing tips for placements"]
+["programming languages should I learn for placements"]
+["tips for making a resume,
+tips for building a resume "]
+["are projects important for resume"]
+["eligibility for appearing in gate"]
+["when gate exams are held"]
+["will I be eligible to apply for the gate Exams if I have backlogs in the qualifying exam papers"]
+["how many gate papers can i apply","how many gate papers can i apply in one year"]
 
 ]
 
@@ -71,6 +87,20 @@ const replies = [
   ["That's ok","I understand","What do you want to talk about?"],
   ["Please say something :("],
   ["Haha!","Good one!"]
+  ["Campus placement or on-campus placements is a program conducted within universities or other educational institutions to provide jobs to students nearing completion of their studies. In this type of program, the educational institution partner with corporations who wish to recruit from the student population."]
+["Off-campus placement is when a company hires you without the involvement of your college. In case of off-campus placement, you must send your resume directly to the company you want to work for"]
+["The best thing about on-campus placements is that you only have to compete against your peers. You don’t have to think about anything else because your college’s placement team will take care of it. However, the opportunities available are very limited. The majority of the recruitment to higher-paying jobs is off-campus. There’s a better chance of getting a kit that matches your abilities. Still, off-campus placements have a higher level of competition"]
+["No, getting an off-campus placement is not at all difficult. The only thing is you have to practice and hone your coding skills"]
+["You can try for some off-campus drives or internships"]
+["You should keep your eyes open for new career options. You can also join groups on LinkedIn, Internshala, or any other platform that provides this type of information. Make it a priority to keep a watch on the career pages of your preferred companies"]
+["Prepare an eye-catching resume Practice Coding Get thorough with the important CS topicsMake Projects Do ample research Read about Interview experiences"]
+["You can learn as many programming languages as you want but make sure to master at least any one programming language of your choice.We recommend you to master any one structured programming language like C and any one of the Object Oriented Programming languages like C++, Java etc"]
+["Keep your resume short and direct. Create an original resume template. Highlight relevant skills and experiences. Demonstrate results with numbers and metrics.List your social media profiles"]
+["Projects add a pinch of salt to your resume. Try to add 2-3 good projects with somehow description of 1-2 lines. Also, be prepared to deliver a detail description of your project and also some of the corner scenarios your project should handle"]
+["Candidates currently enrolled in the third or higher year of an undergraduate degree program or who have finished any government-approved degree program in Engineering, Technology, Architecture, Science, Commerce, or Arts are eligible to take the GATE exam"]
+["Approximately in 1st 2 weeks in February"]
+["You can apply with the help of the mark sheets of the final semester (any one) of your B. Tech graduation but will be required to complete the backlog by the time that the admissions for M. Tech start"]
+["Maximum two papers"]
 
 
 ]
