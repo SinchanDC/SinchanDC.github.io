@@ -26,21 +26,22 @@ function output(input) {
     .replace(/ please/g, "")
     .replace(/r u/g, "are you");
 
-  if (compare(prompts, replies, text)) { 
-    // Search for exact match in `prompts`
-    product = compare(prompts, replies, text);
-  } else if (text.match(/thank/gi)) {
-    product = "You're welcome!"
-  } else if (text.match(/(corona|covid|virus)/gi)) {
-    // If no match, check if message contains `coronavirus`
-    product = coronavirus[Math.floor(Math.random() * coronavirus.length)];
-  } else {
-    // If all else fails: random alternative
-    product = alternative[Math.floor(Math.random() * alternative.length)];
-  }
-
+    if ((product = compare(prompts, replies, text))) {
+      addChat(input, product);
+    } 
+    else if (text.includes("time") || text.includes("date")) {
+      displayDateTime();
+    }
+    // Handle weather requests
+    else if (text.startsWith("weather in ")) {
+      const city = text.replace("weather in ", "").trim();
+      fetchWeather(city);}
+      else {
+      // No predefined answer found, so search Wikipedia
+      searchWikipedia(input);
+    }
   // Update DOM
-  addChat(input, product);
+ 
 }
 
 function compare(promptsArray, repliesArray, string) {
@@ -94,4 +95,81 @@ function addChat(input, product) {
   }, 2000
   )
 
+}
+function searchWikipedia(query) {
+  const endpoint = `https://en.wikipedia.org/w/api.php?`;
+  
+  const params = new URLSearchParams({
+    action: "query",
+    list: "search",
+    srsearch: query,
+    format: "json",
+    origin: "*" // This is necessary for CORS
+  });
+
+  const url = endpoint + params.toString();
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.query.search.length > 0) {
+        const title = data.query.search[0].title;
+        getWikiExtract(title, query);
+      } else {
+        addChat(query, "Sorry, I couldn't find an answer to your question.");
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      addChat(query, "There was an error processing your request.");
+    });
+}
+
+function getWikiExtract(title, userQuery) {
+  const endpoint = `https://en.wikipedia.org/w/api.php?`;
+
+  const params = new URLSearchParams({
+    action: "query",
+    prop: "extracts",
+    exintro: true,
+    explaintext: true,
+    titles: title,
+    format: "json",
+    origin: "*" // This is necessary for CORS
+  });
+
+  const url = endpoint + params.toString();
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const page = data.query.pages;
+      const pageId = Object.keys(data.query.pages)[0];
+      const extract = page[pageId].extract;
+      addChat(userQuery, extract);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      addChat(userQuery, "There was an error processing your request.");
+    });
+}
+
+function displayDateTime() {
+  const now = new Date();
+  addChat("date and time in IST", now.toLocaleString()); // Adjust to your preferred format
+}
+function fetchWeather(city) {
+  const apiKey = '46d611924601b666a63b47f8b4607153'; // Replace with your actual API key
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const weather = `The weather in ${city} is ${data.weather[0].description} with a temperature of ${data.main.temp}°C.`;
+      addChat("weather in "+ city, weather);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      addChat("system", "I'm unable to fetch the weather at this time.");
+    });
 }
