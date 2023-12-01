@@ -1,12 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const inputField = document.getElementById("input");
+  const submitBtn = document.getElementById("submitBtn"); // Get the submit button by its ID
+
+  // Function to handle the submission of input
+  function sendMessage() {
+    let input = inputField.value;
+    inputField.value = ""; // Clear the input field
+    output(input); // Process the input
+  }
+
+  // Event listener for the Enter key in the input field
   inputField.addEventListener("keydown", (e) => {
     if (e.code === "Enter") {
-      let input = inputField.value;
-      inputField.value = "";
-      output(input);
+      sendMessage(); // Call the sendMessage function
     }
   });
+
+  // Event listener for the click event on the Send button
+  submitBtn.addEventListener("click", sendMessage); // Use the same sendMessage function for the click event
 });
 
 function output(input) {
